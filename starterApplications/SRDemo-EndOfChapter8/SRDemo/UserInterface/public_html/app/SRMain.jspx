@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_SRMain.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="SRDemoTemplate" binding="#{backing_app_SRMain.head1}"
+                id="head1">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_SRMain.body1}" id="body1">
+        <af:messages binding="#{backing_app_SRMain.messages1}" id="messages1"/>
+        <h:form binding="#{backing_app_SRMain.form1}" id="form1">
+          <af:panelPage title="Service Request Information"
+                        binding="#{backing_app_SRMain.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="../images/SRBranding.gif"
+                              binding="#{backing_app_SRMain.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_SRMain.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_SRMain.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_SRMain.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_SRMain.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_SRMain.param1}" id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <afh:tableLayout binding="#{backing_app_SRMain.tableLayout1}"
+                             id="tableLayout1">
+              <afh:rowLayout binding="#{backing_app_SRMain.rowLayout1}"
+                             id="rowLayout1">
+                <af:panelForm binding="#{backing_app_SRMain.panelForm1}"
+                              id="panelForm1">
+                  <af:panelLabelAndMessage label="#{bindings.svrId.label}"
+                                           binding="#{backing_app_SRMain.panelLabelAndMessage4}"
+                                           id="panelLabelAndMessage4">
+                    <af:outputText value="#{bindings.svrId.inputValue}"
+                                   binding="#{backing_app_SRMain.outputText5}"
+                                   id="outputText5">
+                      <f:convertNumber groupingUsed="false"
+                                       pattern="#{bindings.svrId.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.assignedDate.label}"
+                                           binding="#{backing_app_SRMain.panelLabelAndMessage1}"
+                                           id="panelLabelAndMessage1">
+                    <af:outputText value="#{bindings.assignedDate.inputValue}"
+                                   binding="#{backing_app_SRMain.outputText2}"
+                                   id="outputText2">
+                      <f:convertDateTime pattern="#{bindings.assignedDate.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.requestDate.label}"
+                                           binding="#{backing_app_SRMain.panelLabelAndMessage2}"
+                                           id="panelLabelAndMessage2">
+                    <af:outputText value="#{bindings.requestDate.inputValue}"
+                                   binding="#{backing_app_SRMain.outputText3}"
+                                   id="outputText3">
+                      <f:convertDateTime pattern="#{bindings.requestDate.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="#{bindings.status.label}"
+                                           binding="#{backing_app_SRMain.panelLabelAndMessage3}"
+                                           id="panelLabelAndMessage3">
+                    <af:outputText value="#{bindings.status.inputValue}"
+                                   binding="#{backing_app_SRMain.outputText4}"
+                                   id="outputText4"/>
+                  </af:panelLabelAndMessage>
+                  <af:inputText value="#{bindings.problemDescription.inputValue}"
+                                label="#{bindings.problemDescription.label}"
+                                required="#{bindings.problemDescription.mandatory}"
+                                columns="35"
+                                binding="#{backing_app_SRMain.inputText1}"
+                                id="inputText1" rows="4" readOnly="true">
+                    <af:validator binding="#{bindings.problemDescription.validator}"/>
+                  </af:inputText>
+                </af:panelForm>
+              </afh:rowLayout>
+              <afh:rowLayout binding="#{backing_app_SRMain.rowLayout2}"
+                             id="rowLayout2">
+                <af:panelForm binding="#{backing_app_SRMain.panelForm2}"
+                              id="panelForm2">
+                  <af:inputText value="#{bindings.lineNo.inputValue}"
+                                label="#{bindings.lineNo.label}"
+                                required="#{bindings.lineNo.mandatory}"
+                                columns="#{bindings.lineNo.displayWidth}"
+                                binding="#{backing_app_SRMain.inputText2}"
+                                id="inputText2" rendered="false">
+                    <af:validator binding="#{bindings.lineNo.validator}"/>
+                    <f:convertNumber groupingUsed="false"
+                                     pattern="#{bindings.lineNo.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.nextLineItem.inputValue}"
+                                label="#{bindings.nextLineItem.label}"
+                                required="#{bindings.nextLineItem.mandatory}"
+                                columns="#{bindings.nextLineItem.displayWidth}"
+                                binding="#{backing_app_SRMain.inputText3}"
+                                id="inputText3" rendered="false">
+                    <af:validator binding="#{bindings.nextLineItem.validator}"/>
+                    <f:convertNumber groupingUsed="false"
+                                     pattern="#{bindings.nextLineItem.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.notes.inputValue}"
+                                label="SR Notes"
+                                required="#{bindings.notes.mandatory}"
+                                columns="35"
+                                binding="#{backing_app_SRMain.inputText4}"
+                                id="inputText4" rows="4">
+                    <af:validator binding="#{bindings.notes.validator}"/>
+                  </af:inputText>
+                  <af:selectInputDate value="#{bindings.svhDate.inputValue}"
+                                      label="#{bindings.svhDate.label}"
+                                      required="#{bindings.svhDate.mandatory}"
+                                      binding="#{backing_app_SRMain.selectInputDate1}"
+                                      id="selectInputDate1" rendered="false">
+                    <af:validator binding="#{bindings.svhDate.validator}"/>
+                    <f:convertDateTime pattern="#{bindings.svhDate.format}"/>
+                  </af:selectInputDate>
+                  <af:inputText value="#{bindings.svhType.inputValue}"
+                                label="#{bindings.svhType.label}"
+                                required="#{bindings.svhType.mandatory}"
+                                columns="#{bindings.svhType.displayWidth}"
+                                binding="#{backing_app_SRMain.inputText5}"
+                                id="inputText5" rendered="false">
+                    <af:validator binding="#{bindings.svhType.validator}"/>
+                  </af:inputText>
+                  <f:facet name="footer">
+                    <af:commandButton text="Add a Note"
+                                      binding="#{backing_app_SRMain.addNoteButton}"
+                                      id="addNoteButton"
+                                      disabled="#{!bindings.persistEntity.enabled}"
+                                      action="#{backing_app_SRMain.addNoteButton_action}">
+                      <af:setActionListener from="#{true}"
+                                            to="#{requestScope.createNewSH}"/>
+                    </af:commandButton>
+                  </f:facet>
+                </af:panelForm>
+              </afh:rowLayout>
+              <afh:rowLayout binding="#{backing_app_SRMain.rowLayout3}"
+                             id="rowLayout3">
+                <af:table value="#{bindings.ServiceRequestsserviceHistoriesCollection.collectionModel}"
+                          var="row"
+                          rows="#{bindings.ServiceRequestsserviceHistoriesCollection.rangeSize}"
+                          first="#{bindings.ServiceRequestsserviceHistoriesCollection.rangeStart}"
+                          emptyText="#{bindings.ServiceRequestsserviceHistoriesCollection.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                          binding="#{backing_app_SRMain.table1}" id="table1">
+                  <af:column headerText="#{bindings.ServiceRequestsserviceHistoriesCollection.labels.svhType}"
+                             sortProperty="svhType" sortable="false"
+                             binding="#{backing_app_SRMain.column5}"
+                             id="column5">
+                    <af:outputText value="#{row.svhType}"
+                                   binding="#{backing_app_SRMain.outputText10}"
+                                   id="outputText10"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.ServiceRequestsserviceHistoriesCollection.labels.svhDate}"
+                             sortProperty="svhDate" sortable="false"
+                             binding="#{backing_app_SRMain.column4}"
+                             id="column4">
+                    <af:outputText value="#{row.svhDate}"
+                                   binding="#{backing_app_SRMain.outputText9}"
+                                   id="outputText9">
+                      <f:convertDateTime pattern="#{bindings.ServiceRequestsserviceHistoriesCollection.formats.svhDate}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.ServiceRequestsserviceHistoriesCollection.labels.notes}"
+                             sortProperty="notes" sortable="false"
+                             binding="#{backing_app_SRMain.column3}"
+                             id="column3">
+                    <af:outputText value="#{row.notes}"
+                                   binding="#{backing_app_SRMain.outputText8}"
+                                   id="outputText8"/>
+                  </af:column>
+                </af:table>
+              </afh:rowLayout>
+            </afh:tableLayout>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_SRMain-->
+</jsp:root>

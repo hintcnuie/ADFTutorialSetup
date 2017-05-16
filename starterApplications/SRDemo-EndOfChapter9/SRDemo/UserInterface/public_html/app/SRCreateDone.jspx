@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_SRCreateDone.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="SRDemo Done"
+                binding="#{backing_app_SRCreateDone.head1}" id="head1">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_SRCreateDone.body1}" id="body1">
+        <h:form binding="#{backing_app_SRCreateDone.form1}" id="form1">
+          <af:panelPage title="#{res['srcreate.pageTitle']}"
+                        binding="#{backing_app_SRCreateDone.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="../images/SRBranding.gif"
+                              binding="#{backing_app_SRCreateDone.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_SRCreateDone.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_SRCreateDone.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_SRCreateDone.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_SRCreateDone.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_SRCreateDone.param1}"
+                         id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:objectSpacer height="10"
+                             binding="#{backing_app_SRCreateDone.objectSpacer1}"
+                             id="objectSpacer1"/>
+            <af:panelBox binding="#{backing_app_SRCreateDone.panelBox1}"
+                         id="panelBox1" width="100%">
+              <af:objectSpacer width="10" height="10"
+                               binding="#{backing_app_SRCreateDone.objectSpacer2}"
+                               id="objectSpacer2"/>
+              <h:outputFormat value="#{res['srcreate.confirmPanel.message']}" escape="false">
+                <f:param value="#{requestScope.SRDEMO_CREATED_SVRID}"/>
+                </h:outputFormat>
+              <af:commandButton text="#{res['srdemo.nextStep']}"
+                                binding="#{backing_app_SRCreateDone.commandButton1}"
+                                id="commandButton1" action="globalHome"/>
+            </af:panelBox>
+            <af:objectSpacer width="10" height="10"
+                             binding="#{backing_app_SRCreateDone.objectSpacer3}"
+                             id="objectSpacer3"/>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_SRCreateDone-->
+</jsp:root>

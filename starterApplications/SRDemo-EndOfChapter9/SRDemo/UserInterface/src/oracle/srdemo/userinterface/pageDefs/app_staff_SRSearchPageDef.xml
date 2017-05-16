@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="10.1.3.36.43" id="app_staff_SRSearchPageDef"
+                Package="oracle.srdemo.userinterface.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="searchServiceRequests_descr"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="searchServiceRequests_status"
+                IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator id="searchServiceRequestsIter"
+                    Binds="searchServiceRequests.result"
+                    DataControl="SRPublicFacadeLocal" RangeSize="10"
+                    BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                    Refresh="ifNeeded"
+                    RefreshCondition="${adfFacesContext.postback}"/>
+  </executables>
+  <bindings>
+    <methodAction id="searchServiceRequests" MethodName="searchServiceRequests"
+                  RequiresUpdateModel="true" Action="999"
+                  DataControl="SRPublicFacadeLocal"
+                  InstanceName="SRPublicFacadeLocal.dataProvider"
+                  ReturnName="SRPublicFacadeLocal.methodResults.SRPublicFacadeLocal_dataProvider_searchServiceRequests_result">
+      <NamedData NDName="descr" NDType="java.lang.String"
+                 NDValue="${((bindings.searchServiceRequests_descr == null) || (bindings.searchServiceRequests_descr == '')) ? '%' : bindings.searchServiceRequests_descr }"/>
+      <NamedData NDName="status" NDType="java.lang.String"
+                 NDValue="${((bindings.searchServiceRequests_status == null) || (bindings.searchServiceRequests_status == '')) ? '%' : bindings.searchServiceRequests_status }"/>
+    </methodAction>
+    <attributeValues id="descr" IterBinding="variables">
+      <AttrNames>
+        <Item Value="searchServiceRequests_descr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="status" IterBinding="variables">
+      <AttrNames>
+        <Item Value="searchServiceRequests_status"/>
+      </AttrNames>
+    </attributeValues>
+    <table id="searchServiceRequests1" IterBinding="searchServiceRequestsIter">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+        <Item Value="problemDescription"/>
+        <Item Value="requestDate"/>
+        <Item Value="status"/>
+        <Item Value="svrId"/>
+      </AttrNames>
+    </table>
+  </bindings>
+</pageDefinition>

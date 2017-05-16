@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="10.1.3.36.43"
+          id="SRPublicFacadeLocal"
+          BeanClass="oracle.srdemo.datamodel.SRPublicFacadeLocal"
+          Package="oracle.srdemo.datamodel" isJavaBased="true">
+  <MethodAccessor IsCollection="false"
+                  Type="oracle.srdemo.datamodel.ServiceRequests"
+                  BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                  id="createServiceRequests"
+                  ReturnNodeName="oracle.srdemo.datamodel.ServiceRequests">
+    <ParameterInfo id="problemDescription" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="productId" Type="java.lang.Integer"
+                   isStructured="false"/>
+    <ParameterInfo id="createdBy" Type="java.lang.Integer"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="oracle.srdemo.datamodel.ExpertiseAreas"
+                  BeanClass="oracle.srdemo.datamodel.ExpertiseAreas"
+                  id="findAllExpertiseAreas"
+                  ReturnNodeName="oracle.srdemo.datamodel.ExpertiseAreas"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true" Type="oracle.srdemo.datamodel.Products"
+                  BeanClass="oracle.srdemo.datamodel.Products"
+                  id="findAllProducts"
+                  ReturnNodeName="oracle.srdemo.datamodel.Products"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true"
+                  Type="oracle.srdemo.datamodel.ServiceHistories"
+                  BeanClass="oracle.srdemo.datamodel.ServiceHistories"
+                  id="findAllServiceHistories"
+                  ReturnNodeName="oracle.srdemo.datamodel.ServiceHistories"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true"
+                  Type="oracle.srdemo.datamodel.ServiceRequests"
+                  BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                  id="findAllServiceRequests"
+                  ReturnNodeName="oracle.srdemo.datamodel.ServiceRequests"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true" Type="oracle.srdemo.datamodel.Users"
+                  BeanClass="oracle.srdemo.datamodel.Users" id="findAllUsers"
+                  ReturnNodeName="oracle.srdemo.datamodel.Users"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true" Type="oracle.srdemo.datamodel.Products"
+                  BeanClass="oracle.srdemo.datamodel.Products"
+                  id="findProductById"
+                  ReturnNodeName="oracle.srdemo.datamodel.Products"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="prodId" Type="java.lang.Integer" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="oracle.srdemo.datamodel.ServiceRequests"
+                  BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                  id="findServiceRequestById"
+                  ReturnNodeName="oracle.srdemo.datamodel.ServiceRequests"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="findSvrId" Type="java.lang.Integer"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="oracle.srdemo.datamodel.ServiceRequests"
+                  BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                  id="findServiceRequests"
+                  ReturnNodeName="oracle.srdemo.datamodel.ServiceRequests"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="filedBy" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="status" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="oracle.srdemo.datamodel.Users"
+                  BeanClass="oracle.srdemo.datamodel.Users" id="findUserById"
+                  ReturnNodeName="oracle.srdemo.datamodel.Users"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="createdBy" Type="java.lang.Integer"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object" id="mergeEntity"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object"
+                  id="persistEntity" ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object"
+                  id="refreshEntity" ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEntity"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+</JavaBean>

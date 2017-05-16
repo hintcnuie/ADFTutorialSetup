@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_SRList.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head binding="#{backing_app_SRList.head1}"
+                id="head1" title="#{res['srdemo.browserTitle']}">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_SRList.body1}" id="body1">
+        <af:messages binding="#{backing_app_SRList.messages1}" id="messages1"/>
+        <h:form binding="#{backing_app_SRList.form1}" id="form1">
+          <af:panelPage title="#{res['srlist.pageTitle']}"
+                        binding="#{backing_app_SRList.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="../images/SRBranding.gif"
+                              binding="#{backing_app_SRList.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_SRList.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_SRList.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_SRList.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_SRList.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_SRList.param1}" id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:table value="#{bindings.findServiceRequests1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.findServiceRequests1.rangeSize}"
+                      first="#{bindings.findServiceRequests1.rangeStart}"
+                      emptyText="#{bindings.findServiceRequests1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                      selectionState="#{bindings.findServiceRequests1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.findServiceRequests1.collectionModel.makeCurrent}"
+                      binding="#{backing_app_SRList.srtable}" id="srtable">
+              <af:column headerText="#{bindings.findServiceRequests1.labels.svrId}"
+                         sortProperty="svrId" sortable="false"
+                         binding="#{backing_app_SRList.column1}" id="column1">
+                <af:commandLink actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                action="#{backing_app_SRList.drillDown_action}"
+                                text="#{row.svrId}"
+                                disabled="#{!bindings.setCurrentRowWithKey.enabled}"
+                                binding="#{backing_app_SRList.commandLink7}"
+                                id="commandLink7"/>
+              </af:column>
+              <af:column headerText="#{bindings.findServiceRequests1.labels.status}"
+                         sortProperty="status" sortable="false"
+                         binding="#{backing_app_SRList.column2}" id="column2">
+                <af:outputText value="#{row.status}"
+                               binding="#{backing_app_SRList.outputText3}"
+                               id="outputText3"/>
+              </af:column>
+              <af:column headerText="#{bindings.findServiceRequests1.labels.requestDate}"
+                         sortProperty="requestDate" sortable="false"
+                         binding="#{backing_app_SRList.column3}" id="column3">
+                <af:outputText value="#{row.requestDate}"
+                               binding="#{backing_app_SRList.outputText4}"
+                               id="outputText4">
+                  <f:convertDateTime pattern="#{bindings.findServiceRequests1.formats.requestDate}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.findServiceRequests1.labels.problemDescription}"
+                         sortProperty="problemDescription" sortable="false"
+                         binding="#{backing_app_SRList.column4}" id="column4">
+                <af:outputText value="#{row.problemDescription}"
+                               binding="#{backing_app_SRList.outputText5}"
+                               id="outputText5"/>
+              </af:column>
+              <af:column headerText="#{bindings.findServiceRequests1.labels.assignedDate}"
+                         sortProperty="assignedDate" sortable="false"
+                         binding="#{backing_app_SRList.column5}" id="column5">
+                <af:outputText value="#{row.assignedDate}"
+                               binding="#{backing_app_SRList.outputText6}"
+                               id="outputText6">
+                  <f:convertDateTime pattern="#{bindings.findServiceRequests1.formats.assignedDate}"/>
+                </af:outputText>
+              </af:column>
+              <f:facet name="selection">
+                <af:tableSelectOne text="Select and"
+                                   binding="#{backing_app_SRList.tableSelectOne1}"
+                                   id="tableSelectOne1">
+                  <af:commandButton text="#{res['srlist.buttonbar.edit']}"
+                                    binding="#{backing_app_SRList.editButton}"
+                                    id="editButton"
+                                    rendered="#{userInfo.staff}"
+                                    action="#{backing_app_SRList.editButton_action}"/>
+                  <af:commandButton text="#{res['srlist.buttonbar.view']} "
+                                    binding="#{backing_app_SRList.viewButton}"
+                                    id="viewButton"
+                                    action="#{backing_app_SRList.viewButton_action}"/>
+                </af:tableSelectOne>
+              </f:facet>
+            </af:table>
+            <f:facet name="menu2">
+              <af:menuBar binding="#{backing_app_SRList.menuBar1}"
+                          id="menuBar1">
+                <af:commandMenuItem actionListener="#{bindings.findServiceRequests.execute}"
+                                    action="findServiceRequests"
+                                    text="#{res['srlist.menubar.openLink']} "
+                                    disabled="#{!bindings.findServiceRequests.enabled}"
+                                    binding="#{backing_app_SRList.commandLink3}"
+                                    id="commandLink3">
+                  <af:setActionListener from="#{'Open'}"
+                                        to="#{userState.listMode}"/>
+                </af:commandMenuItem>
+                <af:commandMenuItem actionListener="#{bindings.findServiceRequests.execute}"
+                                    action="findServiceRequests"
+                                    text="#{res['srlist.menubar.pendingLink']} "
+                                    disabled="#{!bindings.findServiceRequests.enabled}"
+                                    binding="#{backing_app_SRList.commandLink4}"
+                                    id="commandLink4"
+                                    selected="#{userState.listModePending}">
+                  <af:setActionListener from="#{'Pending'}"
+                                        to="#{userState.listMode}"/>
+                </af:commandMenuItem>
+                <af:commandMenuItem actionListener="#{bindings.findServiceRequests.execute}"
+                                    action="findServiceRequests"
+                                    text="#{res['srlist.menubar.closedLink']} "
+                                    disabled="#{!bindings.findServiceRequests.enabled}"
+                                    binding="#{backing_app_SRList.commandLink5}"
+                                    id="commandLink5"
+                                    selected="#{userState.listModeClosed}">
+                  <af:setActionListener from="#{'Closed'}"
+                                        to="#{userState.listMode}"/>
+                </af:commandMenuItem>
+                <af:commandMenuItem actionListener="#{bindings.findServiceRequests.execute}"
+                                    action="findServiceRequests"
+                                    text="#{res['srlist.menubar.allRequests']}"
+                                    disabled="#{!bindings.findServiceRequests.enabled}"
+                                    binding="#{backing_app_SRList.commandLink6}"
+                                    id="commandLink6"
+                                    selected="#{userState.listModeAll}">
+                  <af:setActionListener from="#{'%'}"
+                                        to="#{userState.listMode}"/>
+                </af:commandMenuItem>
+                <af:commandMenuItem text="#{res['srlist.menubar.newLink']} "
+                                    binding="#{backing_app_SRList.commandMenuItem1}"
+                                    id="commandMenuItem1" action="create"/>
+              </af:menuBar>
+            </f:facet>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_SRList-->
+</jsp:root>

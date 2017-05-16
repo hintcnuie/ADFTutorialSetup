@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="10.1.3.36.43"
+          id="ServiceRequests"
+          BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+          Package="oracle.srdemo.datamodel" isJavaBased="true">
+  <Attribute Name="assignedDate" Type="java.sql.Timestamp"/>
+  <Attribute Name="problemDescription" Type="java.lang.String"/>
+  <Attribute Name="requestDate" Type="java.sql.Timestamp"/>
+  <Attribute Name="status" Type="java.lang.String"/>
+  <Attribute Name="svrId" Type="java.lang.Integer"/>
+  <AccessorAttribute id="assignedTo" IsCollection="false"
+                     BeanClass="oracle.srdemo.datamodel.Users"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="createdBy" IsCollection="false"
+                     BeanClass="oracle.srdemo.datamodel.Users"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="products" IsCollection="false"
+                     BeanClass="oracle.srdemo.datamodel.Products"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="serviceHistoriesCollection" IsCollection="true"
+                     RemoveMethod="removeServiceHistories"
+                     AddMethod="addServiceHistories"
+                     BeanClass="oracle.srdemo.datamodel.ServiceHistories"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeServiceHistories"/>
+      <Property Name="AddMethod" Value="addServiceHistories"/>
+    </Properties>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="void" id="addServiceHistories"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="aServiceHistories"
+                   Type="oracle.srdemo.datamodel.ServiceHistories"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addServiceHistories"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="index" Type="int" isStructured="false"/>
+    <ParameterInfo id="aServiceHistories"
+                   Type="oracle.srdemo.datamodel.ServiceHistories"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeServiceHistories"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="aServiceHistories"
+                   Type="oracle.srdemo.datamodel.ServiceHistories"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="false" Type="void" id="ServiceRequests"/>
+</JavaBean>

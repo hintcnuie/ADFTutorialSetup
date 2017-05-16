@@ -1,0 +1,12 @@
+public ServiceRequests createServiceRequests
+    (String problemDescription, Integer productId, Integer createdBy) 
+    { UnitOfWork uow = getSessionFactory().acquireUnitOfWork(); 
+    ServiceRequests newInstance = (ServiceRequests)uow.newInstance(ServiceRequests.class); 
+    Products product = (Products)uow.executeQuery("findProductById", Products.class, productId); 
+    Users user = (Users)uow.executeQuery("findUserById", Users.class, createdBy); 
+    product.addServiceRequests(newInstance); 
+    user.addCreatedBy(newInstance); 
+    newInstance.setStatus(null); 
+    newInstance.setRequestDate(null); 
+    newInstance.setProblemDescription(problemDescription); 
+    uow.commit(); return newInstance; }

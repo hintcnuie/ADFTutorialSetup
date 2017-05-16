@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="10.1.3.36.43"
+          id="Products" BeanClass="oracle.srdemo.datamodel.Products"
+          Package="oracle.srdemo.datamodel" isJavaBased="true">
+  <Attribute Name="description" Type="java.lang.String"/>
+  <Attribute Name="image" Type="java.lang.String"/>
+  <Attribute Name="name" Type="java.lang.String"/>
+  <Attribute Name="prodId" Type="java.lang.Integer"/>
+  <AccessorAttribute id="expertiseAreasCollection" IsCollection="true"
+                     RemoveMethod="removeExpertiseAreas"
+                     AddMethod="addExpertiseAreas"
+                     BeanClass="oracle.srdemo.datamodel.ExpertiseAreas"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeExpertiseAreas"/>
+      <Property Name="AddMethod" Value="addExpertiseAreas"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="serviceRequestsCollection" IsCollection="true"
+                     RemoveMethod="removeServiceRequests"
+                     AddMethod="addServiceRequests"
+                     BeanClass="oracle.srdemo.datamodel.ServiceRequests"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeServiceRequests"/>
+      <Property Name="AddMethod" Value="addServiceRequests"/>
+    </Properties>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="void" id="addExpertiseAreas"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anExpertiseAreas"
+                   Type="oracle.srdemo.datamodel.ExpertiseAreas"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addExpertiseAreas"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="index" Type="int" isStructured="false"/>
+    <ParameterInfo id="anExpertiseAreas"
+                   Type="oracle.srdemo.datamodel.ExpertiseAreas"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addServiceRequests"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="aServiceRequests"
+                   Type="oracle.srdemo.datamodel.ServiceRequests"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addServiceRequests"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="index" Type="int" isStructured="false"/>
+    <ParameterInfo id="aServiceRequests"
+                   Type="oracle.srdemo.datamodel.ServiceRequests"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeExpertiseAreas"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anExpertiseAreas"
+                   Type="oracle.srdemo.datamodel.ExpertiseAreas"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeServiceRequests"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="aServiceRequests"
+                   Type="oracle.srdemo.datamodel.ServiceRequests"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="false" Type="void" id="Products"/>
+</JavaBean>

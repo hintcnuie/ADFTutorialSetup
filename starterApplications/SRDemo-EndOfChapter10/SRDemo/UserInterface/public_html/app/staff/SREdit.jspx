@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_staff_SREdit.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="#{res['srdemo.browserTitle']}"
+                binding="#{backing_app_staff_SREdit.head1}" id="head1">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_staff_SREdit.body1}" id="body1">
+        <af:messages binding="#{backing_app_staff_SREdit.messages1}"
+                     id="messages1"/>
+        <h:form binding="#{backing_app_staff_SREdit.form1}" id="form1">
+          <af:panelPage title="#{res['sredit.pageTitle']}"
+                        binding="#{backing_app_staff_SREdit.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="/images/SRBranding.gif"
+                              binding="#{backing_app_staff_SREdit.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_staff_SREdit.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_staff_SREdit.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_staff_SREdit.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_staff_SREdit.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_staff_SREdit.param1}"
+                         id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:panelBox binding="#{backing_app_staff_SREdit.panelBox1}"
+                         id="panelBox1">
+              <af:panelForm binding="#{backing_app_staff_SREdit.panelForm1}"
+                            id="panelForm1">
+                <af:panelLabelAndMessage label="#{bindings.svrId.label}"
+                                         binding="#{backing_app_staff_SREdit.panelLabelAndMessage1}"
+                                         id="panelLabelAndMessage1">
+                  <af:outputText value="#{bindings.svrId.inputValue}"
+                                 binding="#{backing_app_staff_SREdit.outputText2}"
+                                 id="outputText2">
+                    <f:convertNumber groupingUsed="false"
+                                     pattern="#{bindings.svrId.format}"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{res['sredit.createdBy.label']}"
+                                         binding="#{backing_app_staff_SREdit.panelLabelAndMessage3}"
+                                         id="panelLabelAndMessage3">
+                  <af:panelHorizontal binding="#{backing_app_staff_SREdit.panelHorizontal1}"
+                                      id="panelHorizontal1">
+                    <af:outputText value="#{bindings.UsersfirstName.inputValue}"
+                                   binding="#{backing_app_staff_SREdit.outputText4}"
+                                   id="outputText4"/>
+                    <af:outputText value="#{bindings.UserslastName.inputValue}"
+                                   binding="#{backing_app_staff_SREdit.outputText5}"
+                                   id="outputText5"/>
+                    <f:facet name="separator">
+                      <af:objectSpacer width="4" height="10"
+                                       binding="#{backing_app_staff_SREdit.objectSpacer1}"
+                                       id="objectSpacer1"/>
+                    </f:facet>
+                  </af:panelHorizontal>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.requestDate.label}"
+                                         binding="#{backing_app_staff_SREdit.panelLabelAndMessage2}"
+                                         id="panelLabelAndMessage2">
+                  <af:outputText value="#{bindings.requestDate.inputValue}"
+                                 binding="#{backing_app_staff_SREdit.outputText3}"
+                                 id="outputText3">
+                    <f:convertDateTime pattern="#{bindings.requestDate.format}"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{res['sredit.assignedTo.label']}"
+                                         binding="#{backing_app_staff_SREdit.panelLabelAndMessage4}"
+                                         id="panelLabelAndMessage4">
+                  <af:panelHorizontal binding="#{backing_app_staff_SREdit.panelHorizontal2}"
+                                      id="panelHorizontal2">
+                    <af:outputText value="#{bindings.UsersfirstName1.inputValue}"
+                                   binding="#{backing_app_staff_SREdit.outputText6}"
+                                   id="outputText6"/>
+                    <af:outputText value="#{bindings.UserslastName1.inputValue}"
+                                   binding="#{backing_app_staff_SREdit.outputText7}"
+                                   id="outputText7"/>
+                    <f:facet name="separator">
+                      <af:objectSpacer width="4" height="10"
+                                       binding="#{backing_app_staff_SREdit.objectSpacer2}"
+                                       id="objectSpacer2"/>
+                    </f:facet>
+                  </af:panelHorizontal>
+                </af:panelLabelAndMessage>
+                <af:selectOneChoice value="#{bindings.ServiceRequestsstatus.inputValue}"
+                                    label="#{bindings.ServiceRequestsstatus.label}"
+                                    binding="#{backing_app_staff_SREdit.statusSelection}"
+                                    id="statusSelection" autoSubmit="true"
+                                    immediate="true">
+                  <f:selectItems value="#{bindings.ServiceRequestsstatus.items}"
+                                 binding="#{backing_app_staff_SREdit.selectItems1}"
+                                 id="selectItems1"/>
+                </af:selectOneChoice>
+                <af:selectInputDate value="#{bindings.assignedDate.inputValue}"
+                                    label="#{bindings.assignedDate.label}"
+                                    required="#{bindings.assignedDate.mandatory}"
+                                    binding="#{backing_app_staff_SREdit.selectInputDate1}"
+                                    id="selectInputDate1"
+                                    disabled="#{backing_app_staff_SREdit.statusSelection.value=='2'}">
+                  <af:validator binding="#{bindings.assignedDate.validator}"/>
+                  <f:convertDateTime pattern="#{bindings.assignedDate.format}"/>
+                </af:selectInputDate>
+                <af:inputText value="#{bindings.problemDescription.inputValue}"
+                              label="#{bindings.problemDescription.label}"
+                              required="#{bindings.problemDescription.mandatory}"
+                              columns="#{bindings.problemDescription.displayWidth}"
+                              binding="#{backing_app_staff_SREdit.inputText2}"
+                              id="inputText2" rows="4"
+                              disabled="#{backing_app_staff_SREdit.statusSelection.value=='2'}"
+                              partialTriggers="statusSelection">
+                  <af:validator binding="#{bindings.problemDescription.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                  <af:panelButtonBar binding="#{backing_app_staff_SREdit.panelButtonBar1}"
+                                     id="panelButtonBar1">
+                    <af:commandButton text="#{res['srdemo.cancel']}"
+                                      binding="#{backing_app_staff_SREdit.commandButton1}"
+                                      id="commandButton1">
+                      <af:setActionListener to="#{userState.refresh}"
+                                            from="#{true}"/>
+                    </af:commandButton>
+                    <af:commandButton text="#{res['srdemo.save']}"
+                                      binding="#{backing_app_staff_SREdit.commandButton2}"
+                                      id="commandButton2"
+                                      actionListener="#{bindings.mergeEntity.execute}"
+                                      disabled="#{!bindings.mergeEntity.enabled}"
+                                      action="#{userState.retrieveReturnNavigationRule}">
+                      <af:setActionListener from="#{true}"
+                                            to="#{userState.refresh}"/>
+                    </af:commandButton>
+                  </af:panelButtonBar>
+                </f:facet>
+              </af:panelForm>
+            </af:panelBox>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_staff_SREdit-->
+</jsp:root>

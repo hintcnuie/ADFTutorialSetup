@@ -1,0 +1,20 @@
+    public String saveButton_action() {
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding =
+            bindings.getOperationBinding("createServiceRequests");
+        ServiceRequests result = (ServiceRequests)operationBinding.execute();
+        
+        //Put the number of the created service ID onto the request as an example 
+        // of passing data in that way 
+        // Note that putting the data into a pageDef variable or mananaged bean is 
+        // better practice
+        Integer svrId = result.getSvrId();
+        ExternalContext ectx = FacesContext.getCurrentInstance().getExternalContext();
+        HttpServletRequest request = (HttpServletRequest)ectx.getRequest();
+        request.setAttribute("SRDEMO_CREATED_SVRID",svrId);
+        
+        //Force a requery on the next visit to the SRList page
+        ADFUtils.setPageDefParameterValue(getBindings(),"SRListPageDef","forceRefresh","true");
+        
+        return "Complete";
+    }

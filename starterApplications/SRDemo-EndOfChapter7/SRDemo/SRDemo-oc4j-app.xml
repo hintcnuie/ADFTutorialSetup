@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<orion-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/technology/oracleas/schema http://xmlns.oracle.com/oracleas/schema/orion-application-10_0.xsd" version="10.0" xmlns="http://www.oracle.com/technology/oracleas/schema">
+    <ejb-module path="file:/D:/curriculum/workshops/adfSource/starterApp/rescueMe/SRDemo-EndOfChapter7/SRDemo-EndOfChapter7/SRDemo/DataModel/classes/" id="SRDemo_DataModel_0"/>
+    <web-module id="SRDemo-UserInterface-webapp" path="file:/D:/curriculum/workshops/adfSource/starterApp/rescueMe/SRDemo-EndOfChapter7/SRDemo-EndOfChapter7/SRDemo/UserInterface/public_html/"/>
+    <library path="D:\JDeveloper_3663\toplink\jlib\toplink.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\toplink\jlib\toplink-oc4j.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\toplink\jlib\antlr.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\lib\xmlparserv2.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\lib\xml.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\oc4j-internal.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\opmn\lib\optic.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\activation.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\ejb.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\jms.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\jta.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\mail.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\servlet.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\oc4jclient.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\persistence.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\ejb30.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\asm.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\j2ee\home\lib\asm-attrs.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\lib\adfshare.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\lib\adfm.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\lib\collections.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\jlib\adfui.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\lib\adfbinding.jar">jdev-generated</library>
+    <library path="D:\JDeveloper_3663\BC4J\jlib\adfmtl.jar">jdev-generated</library>
+    <log>
+        <file path="SRDemo-oc4j-app.log" xmlns=""/>
+    </log>
+    <jazn provider="XML" location="SRDemo-jazn-data.xml" default-realm="jazn.com"/>
+    <data-sources path="SRDemo-data-sources.xml"/>
+</orion-application>

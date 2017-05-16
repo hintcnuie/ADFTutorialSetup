@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="10.1.3.36.43" id="DataBindings" SeparateXMLFiles="false"
+             Package="oracle.srdemo.userinterface" ClientType="Generic">
+  <pageMap>
+    <page path="/app/SRList.jspx" usageId="app_SRListPageDef"/>
+    <page path="/app/staff/SRSearch.jspx" usageId="app_staff_SRSearchPageDef"/>
+    <page path="/app/SRMain.jspx" usageId="app_SRMainPageDef"/>
+    <page path="/app/SRCreate.jspx" usageId="app_SRCreatePageDef"/>
+    <page path="/app/SRCreateConfirm.jspx"
+          usageId="app_SRCreateConfirmPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="app_SRListPageDef"
+          path="oracle.srdemo.userinterface.pageDefs.app_SRListPageDef"/>
+    <page id="UserInfo" path="oracle.srdemo.userinterface.pageDefs.userInfo"/>
+    <page id="app_staff_SRSearchPageDef"
+          path="oracle.srdemo.userinterface.pageDefs.app_staff_SRSearchPageDef"/>
+    <page id="app_SRMainPageDef"
+          path="oracle.srdemo.userinterface.pageDefs.app_SRMainPageDef"/>
+    <page id="app_SRCreatePageDef"
+          path="oracle.srdemo.userinterface.pageDefs.app_SRCreatePageDef"/>
+    <page id="app_SRCreateConfirmPageDef"
+          path="oracle.srdemo.userinterface.pageDefs.app_SRCreateConfirmPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SRPublicFacadeLocal"
+        path="oracle.srdemo.datamodel.SRPublicFacadeLocal"/>
+  </dataControlUsages>
+</Application>

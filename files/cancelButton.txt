@@ -1,0 +1,15 @@
+    public String cancelButton_action() {
+        // This action is actually reused from two pages SRCreate and SRCreateConfirm
+         DCBindingContainer dcBindings = (DCBindingContainer)ADFUtils.findBindingContainer(getBindings(),"SRCreatePageDef");       
+    
+        //Reset the list to the first item
+        DCIteratorBinding productsIter = dcBindings.findIteratorBinding("findAllProductsIter");
+        productsIter.setCurrentRowIndexInRange(0);
+        
+        // first the description field
+        AttributeBinding problem = (AttributeBinding)dcBindings.getControlBinding("problemDescription");
+        problem.setInputValue(null);
+        
+        return "GlobalHome";
+        
+    }

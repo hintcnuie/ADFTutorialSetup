@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE toplink-configuration PUBLIC "-//Oracle Corp.//DTD TopLink Sessions 9.0.4//EN" "sessions_9_0_4.dtd">
+<toplink-configuration>
+   <session>
+      <name>SRDemoSession</name>
+      <project-xml>META-INF/SRMap.xml</project-xml>
+      <session-type>
+         <server-session/>
+      </session-type>
+      <login>
+         <driver-class>oracle.jdbc.OracleDriver</driver-class>
+         <datasource>jdbc/SRDemoDS</datasource>
+         <platform-class>oracle.toplink.platform.database.oracle.Oracle10Platform</platform-class>
+         <user-name>srdemo</user-name>
+         <encryption-class-name>oracle.toplink.internal.security.JCEEncryptor</encryption-class-name>
+         <encrypted-password>A0D145248EE31051EAA1C822B80C610A</encrypted-password>
+      </login>
+      <enable-logging>true</enable-logging>
+      <logging-options/>
+   </session>
+</toplink-configuration>

@@ -1,0 +1,30 @@
+        <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>ALL Manager</web-resource-name>
+            <url-pattern>faces/app/management/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>AllStaff</web-resource-name>
+            <url-pattern>faces/app/staff/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>technician</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>SRDemo Sample</web-resource-name>
+            <url-pattern>faces/app/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+            <role-name>technician</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>

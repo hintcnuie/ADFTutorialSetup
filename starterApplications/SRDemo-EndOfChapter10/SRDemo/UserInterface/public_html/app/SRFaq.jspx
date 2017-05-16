@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html>
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="SRDemo FAQ">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body>
+        <h:form>
+          <af:panelPage title="#{res['srfaq.pageTitle']}" chromeType="compact">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="../images/SRBranding.gif"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}">
+                <f:param value="#{userInfo.userName}"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:panelGroup>
+              <af:panelList>
+                <af:outputFormatted value="#{res['srfaq.faq.q1']}"/>
+              </af:panelList>
+              <af:panelList>
+                <af:outputFormatted value="#{res['srfaq.faq.q2']}"/>
+              </af:panelList>
+              <af:panelList>
+                <af:outputFormatted value="#{res['srfaq.faq.q3']}"/>
+              </af:panelList>
+            </af:panelGroup>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+</jsp:root>

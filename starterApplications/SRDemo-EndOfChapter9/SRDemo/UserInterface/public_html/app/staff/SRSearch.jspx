@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_staff_SRSearch.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="SRDemo Search"
+                binding="#{backing_app_staff_SRSearch.head1}" id="head1">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_staff_SRSearch.body1}" id="body1">
+        <af:messages binding="#{backing_app_staff_SRSearch.messages1}"
+                     id="messages1"/>
+        <h:form binding="#{backing_app_staff_SRSearch.form1}" id="form1">
+          <af:panelPage title="#{res['srsearch.pageTitle']}"
+                        binding="#{backing_app_staff_SRSearch.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="/images/SRBranding.gif"
+                              binding="#{backing_app_staff_SRSearch.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_staff_SRSearch.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_staff_SRSearch.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_staff_SRSearch.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_staff_SRSearch.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_staff_SRSearch.param1}"
+                         id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:panelBox binding="#{backing_app_staff_SRSearch.panelBox1}"
+                         id="panelBox1">
+              <af:panelForm binding="#{backing_app_staff_SRSearch.panelForm1}"
+                            id="panelForm1">
+                <af:inputText value="#{bindings.descr.inputValue}"
+                              label="Description:"
+                              required="#{bindings.descr.mandatory}"
+                              columns="#{bindings.descr.displayWidth}"
+                              binding="#{backing_app_staff_SRSearch.inputText1}"
+                              id="inputText1">
+                  <af:validator binding="#{bindings.descr.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.status.inputValue}"
+                              label="Status:"
+                              required="#{bindings.status.mandatory}"
+                              columns="#{bindings.status.displayWidth}"
+                              binding="#{backing_app_staff_SRSearch.inputText2}"
+                              id="inputText2">
+                  <af:validator binding="#{bindings.status.validator}"/>
+                </af:inputText>
+                <af:commandButton actionListener="#{bindings.searchServiceRequests.execute}"
+                                  text="#{res['srsearch.searchLabel']}"
+                                  disabled="#{!bindings.searchServiceRequests.enabled}"
+                                  binding="#{backing_app_staff_SRSearch.commandButton1}"
+                                  id="commandButton1"/>
+              </af:panelForm>
+            </af:panelBox>
+            <af:table value="#{bindings.searchServiceRequests1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.searchServiceRequests1.rangeSize}"
+                      first="#{bindings.searchServiceRequests1.rangeStart}"
+                      emptyText="#{bindings.searchServiceRequests1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                      selectionState="#{bindings.searchServiceRequests1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.searchServiceRequests1.collectionModel.makeCurrent}"
+                      binding="#{backing_app_staff_SRSearch.srtable}"
+                      id="srtable">
+              <af:column headerText="#{bindings.searchServiceRequests1.labels.svrId}"
+                         sortProperty="svrId" sortable="false"
+                         binding="#{backing_app_staff_SRSearch.column5}"
+                         id="column5">
+                <af:outputText value="#{row.svrId}"
+                               binding="#{backing_app_staff_SRSearch.outputText6}"
+                               id="outputText6">
+                  <f:convertNumber groupingUsed="false"
+                                   pattern="#{bindings.searchServiceRequests1.formats.svrId}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.searchServiceRequests1.labels.problemDescription}"
+                         sortProperty="problemDescription" sortable="false"
+                         binding="#{backing_app_staff_SRSearch.column2}"
+                         id="column2">
+                <af:outputText value="#{row.problemDescription}"
+                               binding="#{backing_app_staff_SRSearch.outputText3}"
+                               id="outputText3"/>
+              </af:column>
+              <af:column headerText="#{bindings.searchServiceRequests1.labels.status}"
+                         sortProperty="status" sortable="false"
+                         binding="#{backing_app_staff_SRSearch.column4}"
+                         id="column4">
+                <af:outputText value="#{row.status}"
+                               binding="#{backing_app_staff_SRSearch.outputText5}"
+                               id="outputText5"/>
+              </af:column>
+              <af:column headerText="#{bindings.searchServiceRequests1.labels.requestDate}"
+                         sortProperty="requestDate" sortable="false"
+                         binding="#{backing_app_staff_SRSearch.column3}"
+                         id="column3">
+                <af:outputText value="#{row.requestDate}"
+                               binding="#{backing_app_staff_SRSearch.outputText4}"
+                               id="outputText4">
+                  <f:convertDateTime pattern="#{bindings.searchServiceRequests1.formats.requestDate}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.searchServiceRequests1.labels.assignedDate}"
+                         sortProperty="assignedDate" sortable="false"
+                         binding="#{backing_app_staff_SRSearch.column1}"
+                         id="column1">
+                <af:outputText value="#{row.assignedDate}"
+                               binding="#{backing_app_staff_SRSearch.outputText2}"
+                               id="outputText2">
+                  <f:convertDateTime pattern="#{bindings.searchServiceRequests1.formats.assignedDate}"/>
+                </af:outputText>
+              </af:column>
+              <f:facet name="selection">
+                <af:tableSelectOne text="#{res['srsearch.resultsTable.prefix']}"
+                                   binding="#{backing_app_staff_SRSearch.tableSelectOne1}"
+                                   id="tableSelectOne1">
+                  <af:commandButton text="#{res['srsearch.resultsTable.edit']}"
+                                    binding="#{backing_app_staff_SRSearch.editButton}"
+                                    id="editButton"
+                                    rendered="#{userInfo.staff}"
+                                    action="#{backing_app_staff_SRSearch.editButton_action}"/>
+                  <af:commandButton text="#{res['srsearch.resultsTable.view']}"
+                                    binding="#{backing_app_staff_SRSearch.viewButton}"
+                                    id="viewButton" disabled="false"
+                                    action="#{backing_app_staff_SRSearch.viewButton_action}"/>
+                </af:tableSelectOne>
+              </f:facet>
+            </af:table>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_staff_SRSearch-->
+</jsp:root>

@@ -1,0 +1,581 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TABLE class="oracle.javatools.db.Table" xmlns="http://xmlns.oracle.com/jdeveloper/10130/offlinedb">
+   <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID" id="0">
+      <ID>ba41a115-0108-1000-8019-8d9042bf2fc5</ID>
+      <parent/>
+      <type>TABLE</type>
+   </ID>
+   <columns>
+      <Item id="3">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID" id="6">
+            <ID>ba41a115-0108-1000-801a-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>precision</Key>
+                  <Value>8</Value>
+               </Item>
+               <Item>
+                  <Key>scale</Key>
+                  <Value class="java.lang.Long">0</Value>
+               </Item>
+            </attributeValues>
+            <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID" id="1">
+               <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+               <schemaName/>
+               <typeName>NUMBER</typeName>
+            </dataTypeID>
+         </dataTypeUsage>
+         <default/>
+         <name>SVR_ID</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>Comment</Key>
+               <Value>This is the id of the person adding (updating) this note.</Value>
+            </Item>
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVR_ID</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item id="5">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-801b-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>precision</Key>
+                  <Value>4</Value>
+               </Item>
+               <Item>
+                  <Key>scale</Key>
+                  <Value class="java.lang.Long">0</Value>
+               </Item>
+            </attributeValues>
+            <dataTypeID idref="1"/>
+         </dataTypeUsage>
+         <default/>
+         <name>LINE_NO</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>LINE_NO</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item>
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-801c-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>scale</Key>
+                  <Value class="java.lang.Long">6</Value>
+               </Item>
+            </attributeValues>
+            <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+               <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+               <schemaName/>
+               <typeName>TIMESTAMP</typeName>
+            </dataTypeID>
+         </dataTypeUsage>
+         <default/>
+         <name>SVH_DATE</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVH_DATE</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item>
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-801d-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>size</Key>
+                  <Value class="java.lang.Long">4000</Value>
+               </Item>
+               <Item>
+                  <Key>unit</Key>
+                  <Value/>
+               </Item>
+            </attributeValues>
+            <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID" id="2">
+               <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+               <schemaName/>
+               <typeName>VARCHAR2</typeName>
+            </dataTypeID>
+         </dataTypeUsage>
+         <default/>
+         <name>NOTES</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>NOTES</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item>
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-801e-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>size</Key>
+                  <Value class="java.lang.Long">10</Value>
+               </Item>
+               <Item>
+                  <Key>unit</Key>
+                  <Value/>
+               </Item>
+            </attributeValues>
+            <dataTypeID idref="2"/>
+         </dataTypeUsage>
+         <default/>
+         <name>SVH_TYPE</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>Comment</Key>
+               <Value>This will be either Customer, Technician or Hidden. If it's Hidden, the customer won't see this comment.</Value>
+            </Item>
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVH_TYPE</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item id="4">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID" id="7">
+            <ID>ba41a115-0108-1000-801f-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>COLUMN</type>
+         </ID>
+         <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+            <attributeValues class="java.util.HashMap">
+               <Item>
+                  <Key>precision</Key>
+                  <Value>8</Value>
+               </Item>
+               <Item>
+                  <Key>scale</Key>
+                  <Value class="java.lang.Long">0</Value>
+               </Item>
+            </attributeValues>
+            <dataTypeID idref="1"/>
+         </dataTypeUsage>
+         <default/>
+         <name>CREATED_BY</name>
+         <notNull>true</notNull>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>CREATED_BY</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>COLUMN</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+   </columns>
+   <constraints>
+      <Item class="oracle.javatools.db.CheckConstraint">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8020-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>CONSTRAINT</type>
+         </ID>
+         <checkCondition>SVH_TYPE IN ('Customer','Technician','Hidden')</checkCondition>
+         <enabled>true</enabled>
+         <name>HISTORY_TYPE_CHK</name>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>HISTORY_TYPE_CHK</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>CONSTRAINT</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+      <Item class="oracle.javatools.db.FKConstraint">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8021-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>CONSTRAINT</type>
+         </ID>
+         <columns>
+            <Item idref="3"/>
+         </columns>
+         <deleteMode>0</deleteMode>
+         <enabled>true</enabled>
+         <name>SVH_SVR_FK</name>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVH_SVR_FK</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>CONSTRAINT</type>
+               </Value>
+            </Item>
+         </properties>
+         <referenceID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-800f-8d9042bf2fc5</ID>
+            <parent class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+               <ID>ba41a115-0108-1000-8002-8d9042bf2fc5</ID>
+               <parent/>
+               <type>TABLE</type>
+            </parent>
+            <type>CONSTRAINT</type>
+         </referenceID>
+      </Item>
+      <Item class="oracle.javatools.db.FKConstraint">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8022-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>CONSTRAINT</type>
+         </ID>
+         <columns>
+            <Item idref="4"/>
+         </columns>
+         <deleteMode>0</deleteMode>
+         <enabled>true</enabled>
+         <name>SVH_USR_FK</name>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVH_USR_FK</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>CONSTRAINT</type>
+               </Value>
+            </Item>
+         </properties>
+         <referenceID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8036-8d9042bf2fc5</ID>
+            <parent class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+               <ID>ba41a115-0108-1000-802a-8d9042bf2fc5</ID>
+               <parent/>
+               <type>TABLE</type>
+            </parent>
+            <type>CONSTRAINT</type>
+         </referenceID>
+      </Item>
+      <Item class="oracle.javatools.db.PKConstraint">
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8023-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>CONSTRAINT</type>
+         </ID>
+         <columns>
+            <Item idref="3"/>
+            <Item idref="5"/>
+         </columns>
+         <enabled>true</enabled>
+         <name>SVH_PK</name>
+         <properties class="java.util.HashMap">
+            <Item>
+               <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+               <Value class="oracle.jdeveloper.offlinedb.marshal.GenericDBReferenceID">
+                  <ID/>
+                  <name>SVH_PK</name>
+                  <parent class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+                     <ID/>
+                     <connectionName>SRDemo</connectionName>
+                     <databaseID>64771</databaseID>
+                     <name>SERVICE_HISTORIES</name>
+                     <parent/>
+                     <schemaName>SRDEMO</schemaName>
+                     <type>TABLE</type>
+                  </parent>
+                  <schemaName/>
+                  <type>CONSTRAINT</type>
+               </Value>
+            </Item>
+         </properties>
+      </Item>
+   </constraints>
+   <indexes>
+      <Item>
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8024-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>INDEX</type>
+         </ID>
+         <columnExpressions>
+            <Item>
+               <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+                  <ID>ba41a115-0108-1000-8025-8d9042bf2fc5</ID>
+                  <parent/>
+                  <type>SQLFragment</type>
+               </ID>
+               <expression class="oracle.javatools.db.sql.ColumnUsage">
+                  <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+                     <ID>ba41a115-0108-1000-8026-8d9042bf2fc5</ID>
+                     <parent/>
+                     <type>SQLFragment</type>
+                  </ID>
+                  <attributes/>
+                  <columnID/>
+                  <fromObject/>
+                  <name/>
+                  <objectID idref="6"/>
+                  <outerJoin>false</outerJoin>
+                  <parent/>
+                  <properties/>
+                  <qualified>true</qualified>
+               </expression>
+               <name/>
+               <order>ASC</order>
+               <parent/>
+               <properties/>
+            </Item>
+         </columnExpressions>
+         <columns class="[Loracle.javatools.db.Column;"/>
+         <name>SVH_SVR_FK_I</name>
+         <properties/>
+      </Item>
+      <Item>
+         <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+            <ID>ba41a115-0108-1000-8027-8d9042bf2fc5</ID>
+            <parent idref="0"/>
+            <type>INDEX</type>
+         </ID>
+         <columnExpressions>
+            <Item>
+               <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+                  <ID>ba41a115-0108-1000-8028-8d9042bf2fc5</ID>
+                  <parent/>
+                  <type>SQLFragment</type>
+               </ID>
+               <expression class="oracle.javatools.db.sql.ColumnUsage">
+                  <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+                     <ID>ba41a115-0108-1000-8029-8d9042bf2fc5</ID>
+                     <parent/>
+                     <type>SQLFragment</type>
+                  </ID>
+                  <attributes/>
+                  <columnID/>
+                  <fromObject/>
+                  <name/>
+                  <objectID idref="7"/>
+                  <outerJoin>false</outerJoin>
+                  <parent/>
+                  <properties/>
+                  <qualified>true</qualified>
+               </expression>
+               <name/>
+               <order>ASC</order>
+               <parent/>
+               <properties/>
+            </Item>
+         </columnExpressions>
+         <columns class="[Loracle.javatools.db.Column;"/>
+         <name>SVH_USR_FK_I</name>
+         <properties/>
+      </Item>
+   </indexes>
+   <name>SERVICE_HISTORIES</name>
+   <properties class="java.util.HashMap">
+      <Item>
+         <Key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</Key>
+         <Value>SRDemo</Value>
+      </Item>
+      <Item>
+         <Key>OfflineDBConstants.IMPORT_SOURCE_ID</Key>
+         <Value class="oracle.jdeveloper.offlinedb.marshal.OracleDBReferenceID">
+            <ID/>
+            <connectionName>SRDemo</connectionName>
+            <databaseID>64771</databaseID>
+            <name>SERVICE_HISTORIES</name>
+            <parent/>
+            <schemaName>SRDEMO</schemaName>
+            <type>TABLE</type>
+         </Value>
+      </Item>
+      <Item>
+         <Key>OfflineDBConstants.IMPORT_SOURCE_NAME</Key>
+         <Value>SERVICE_HISTORIES</Value>
+      </Item>
+      <Item>
+         <Key>OfflineDBConstants.IMPORT_SOURCE_SCHEMA</Key>
+         <Value>SRDEMO</Value>
+      </Item>
+      <Item>
+         <Key>OracleStorageProperties</Key>
+         <Value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <bufferMode>0</bufferMode>
+            <freelistGroups/>
+            <freelists/>
+            <initialExtent>65536</initialExtent>
+            <initrans>1</initrans>
+            <logging>false</logging>
+            <maxExtent>2147483645</maxExtent>
+            <maxtrans>255</maxtrans>
+            <minExtent>1</minExtent>
+            <nextExtent/>
+            <percentFree/>
+            <percentIncrease/>
+            <percentUsed/>
+            <tablespace>USERS</tablespace>
+         </Value>
+      </Item>
+      <Item>
+         <Key>TableType</Key>
+         <Value>Normal</Value>
+      </Item>
+   </properties>
+   <schema>
+      <ID class="oracle.jdeveloper.offlinedb.OfflineDBObjectID">
+         <ID>ba419a32-0108-1000-8001-8d9042bf2fc5</ID>
+         <parent/>
+         <type>SCHEMA</type>
+      </ID>
+      <name>SRDEMO</name>
+      <properties class="java.util.HashMap">
+         <Item>
+            <Key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</Key>
+            <Value>SRDemo</Value>
+         </Item>
+         <Item>
+            <Key>OfflineDBConstants.IMPORT_SOURCE_SCHEMA</Key>
+            <Value>SRDEMO</Value>
+         </Item>
+      </properties>
+   </schema>
+</TABLE>

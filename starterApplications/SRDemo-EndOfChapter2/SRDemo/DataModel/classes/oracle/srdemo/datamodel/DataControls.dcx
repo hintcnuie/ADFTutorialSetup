@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="10.1.3.36.43" Package="oracle.srdemo.datamodel"
+                    id="DataControls">
+  <AdapterDataControl id="SRPublicFacadeLocal"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.ejb.EjbDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="oracle.srdemo.datamodel.SRPublicFacadeLocal"
+                      BeanClass="oracle.srdemo.datamodel.SRPublicFacadeLocal"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="oracle.srdemo.datamodel.Products"/>
+      <TypeInfo FullName="oracle.srdemo.datamodel.ExpertiseAreas"/>
+      <TypeInfo FullName="oracle.srdemo.datamodel.ServiceHistories"/>
+      <TypeInfo FullName="oracle.srdemo.datamodel.Users"/>
+      <TypeInfo FullName="oracle.srdemo.datamodel.ServiceRequests"/>
+    </CreatableTypes>
+    <Source>
+      <ejb-definition ejb-version="3.0" ejb-name="SRPublicFacade"
+                      ejb-type="Session" ejb-interface-type="local"
+                      ejb-business-interface="oracle.srdemo.datamodel.SRPublicFacadeLocal"
+                      xmlns="http://xmlns.oracle.com/adfm/adapter/ejb"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

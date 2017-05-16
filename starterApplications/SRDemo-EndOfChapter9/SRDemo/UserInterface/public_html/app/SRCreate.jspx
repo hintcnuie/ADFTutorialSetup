@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <afh:html binding="#{backing_app_SRCreate.html1}" id="html1">
+      <f:loadBundle basename="UIResources" var="res"/>
+      <afh:head title="SRDemo Create" binding="#{backing_app_SRCreate.head1}"
+                id="head1">
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=windows-1252"/>
+      </afh:head>
+      <afh:body binding="#{backing_app_SRCreate.body1}" id="body1">
+        <af:messages binding="#{backing_app_SRCreate.messages1}"
+                     id="messages1"/>
+        <h:form binding="#{backing_app_SRCreate.form1}" id="form1">
+          <af:panelPage title="#{res['srcreate.pageTitle']}"
+                        binding="#{backing_app_SRCreate.panelPage1}"
+                        id="panelPage1">
+            <f:facet name="menu1"/>
+            <f:facet name="menuGlobal"/>
+            <f:facet name="branding">
+              <h:graphicImage height="69" width="340"
+                              url="../images/SRBranding.gif"
+                              binding="#{backing_app_SRCreate.graphicImage1}"
+                              id="graphicImage1"/>
+            </f:facet>
+            <f:facet name="brandingApp"/>
+            <f:facet name="appCopyright">
+              <af:outputText value="#{res['srdemo.copyright']}" escape="false"
+                             binding="#{backing_app_SRCreate.outputText1}"
+                             id="outputText1"/>
+            </f:facet>
+            <f:facet name="appPrivacy">
+              <af:commandLink text="#{res['srdemo.contact']}"
+                              action="dialog:globalContact"
+                              binding="#{backing_app_SRCreate.commandLink1}"
+                              id="commandLink1"/>
+            </f:facet>
+            <f:facet name="appAbout">
+              <af:commandLink text="#{res['srdemo.about']}" immediate="true"
+                              binding="#{backing_app_SRCreate.commandLink2}"
+                              id="commandLink2"/>
+            </f:facet>
+            <f:facet name="infoUser">
+              <h:outputFormat value="#{res['srdemo.connectedUser']}"
+                              rendered="#{userInfo.authenticated}"
+                              binding="#{backing_app_SRCreate.outputFormat1}"
+                              id="outputFormat1">
+                <f:param value="#{userInfo.userName}"
+                         binding="#{backing_app_SRCreate.param1}" id="param1"/>
+              </h:outputFormat>
+            </f:facet>
+            <af:processTrain binding="#{backing_app_SRCreate.createStepsTrain}"
+                             id="createStepsTrain"
+                             value="#{createTrainMenuModel.model}" var="train">
+              <f:facet name="nodeStamp">
+                <af:commandMenuItem text="#{train.label}"
+                                    binding="#{backing_app_SRCreate.trainNode}"
+                                    id="trainNode"
+                                    action="#{train.getOutcome}"
+                                    readOnly="#{createTrainMenuModel.model.readOnly}"/>
+              </f:facet>
+            </af:processTrain>
+            <af:objectSpacer height="10"
+                             binding="#{backing_app_SRCreate.objectSpacer1}"
+                             id="objectSpacer1"/>
+            <af:panelHorizontal binding="#{backing_app_SRCreate.panelHorizontal1}"
+                                id="panelHorizontal1">
+              <af:outputText value="#{res['srcreate.faqText']}"
+                             binding="#{backing_app_SRCreate.outputText2}"
+                             id="outputText2"/>
+              <af:commandLink text="#{res['srcreate.faqLink']}"
+                              binding="#{backing_app_SRCreate.commandLink3}"
+                              id="commandLink3" action="FAQ"
+                              partialSubmit="true" useWindow="true"/>
+              <f:facet name="separator">
+                <af:objectSpacer width="4" height="10"
+                                 binding="#{backing_app_SRCreate.objectSpacer2}"
+                                 id="objectSpacer2"/>
+              </f:facet>
+            </af:panelHorizontal>
+            <af:objectSpacer height="10"
+                             binding="#{backing_app_SRCreate.objectSpacer3}"
+                             id="objectSpacer3"/>
+            <af:outputFormatted value="#{res['srcreate.explainText']}"
+                                binding="#{backing_app_SRCreate.outputFormatted1}"
+                                id="outputFormatted1"/>
+            <af:objectSpacer height="10"
+                             binding="#{backing_app_SRCreate.objectSpacer4}"
+                             id="objectSpacer4"/>
+            <af:panelForm binding="#{backing_app_SRCreate.panelForm1}"
+                          id="panelForm1">
+              <f:facet name="footer">
+                <af:panelButtonBar binding="#{backing_app_SRCreate.panelButtonBar1}"
+                                   id="panelButtonBar1">
+                  <af:commandButton text="#{res['srdemo.cancel']}"
+                                    binding="#{backing_app_SRCreate.cancelButton}"
+                                    id="cancelButton" immediate="true"
+                                    action="#{backing_app_SRCreate.cancelButton_action}"/>
+                  <af:commandButton text="#{res['srdemo.nextStep']}"
+                                    binding="#{backing_app_SRCreate.commandButton1}"
+                                    id="commandButton1" action="confirm"/>
+                </af:panelButtonBar>
+              </f:facet>
+              <af:selectOneListbox id="navList1" autoSubmit="false"
+                                   value="#{bindings.findAllProducts1.inputValue}"
+                                   label="#{res['srcreate.info.1']}"
+                                   binding="#{backing_app_SRCreate.navList1}">
+                <f:selectItems value="#{bindings.findAllProducts1.items}"
+                               binding="#{backing_app_SRCreate.selectItems1}"
+                               id="selectItems1"/>
+              </af:selectOneListbox>
+              <af:inputText label="#{res['srcreate.info.2']}"
+                            binding="#{backing_app_SRCreate.inputText1}"
+                            id="inputText1" columns="50" rows="4"
+                            required="true"
+                            value="#{bindings.problemDescription.inputValue}"/>
+            </af:panelForm>
+          </af:panelPage>
+        </h:form>
+      </afh:body>
+    </afh:html>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_app_SRCreate-->
+</jsp:root>

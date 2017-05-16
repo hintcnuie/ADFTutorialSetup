@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toplink:object-persistence version="Oracle TopLink - 10g Release 3 (10.1.3.0.0) (Build 060118)" xmlns:opm="http://xmlns.oracle.com/ias/xsds/opm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:toplink="http://xmlns.oracle.com/ias/xsds/toplink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <opm:name>SRMap</opm:name>
+   <opm:class-mapping-descriptors>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>oracle.srdemo.datamodel.ExpertiseAreas</opm:class>
+         <opm:alias>ExpertiseAreas</opm:alias>
+         <opm:primary-key>
+            <opm:field table="EXPERTISE_AREAS" name="PROD_ID" xsi:type="opm:column"/>
+            <opm:field table="EXPERTISE_AREAS" name="USER_ID" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="findAllExpertiseAreas" xsi:type="toplink:read-all-query">
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ExpertiseAreas</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>expertiseLevel</opm:attribute-name>
+               <opm:field table="EXPERTISE_AREAS" name="EXPERTISE_LEVEL" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>notes</opm:attribute-name>
+               <opm:field table="EXPERTISE_AREAS" name="NOTES" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>products</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Products</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="EXPERTISE_AREAS" name="PROD_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="EXPERTISE_AREAS" name="PROD_ID" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>users</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Users</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="EXPERTISE_AREAS" name="USER_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="EXPERTISE_AREAS" name="USER_ID" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:change-policy xsi:type="toplink:deferred-detection-change-policy"/>
+         <toplink:tables>
+            <toplink:table name="EXPERTISE_AREAS"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>oracle.srdemo.datamodel.Products</opm:class>
+         <opm:alias>Products</opm:alias>
+         <opm:primary-key>
+            <opm:field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="findAllProducts" xsi:type="toplink:read-all-query">
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.Products</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+               <opm:query name="findProductById" xsi:type="toplink:read-object-query">
+                  <opm:criteria operator="equal" xsi:type="toplink:relation-expression">
+                     <toplink:left name="prodId" xsi:type="toplink:query-key-expression">
+                        <toplink:base xsi:type="toplink:base-expression"/>
+                     </toplink:left>
+                     <toplink:right xsi:type="toplink:parameter-expression">
+                        <toplink:parameter name="prodId" xsi:type="opm:column"/>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="prodId">
+                        <opm:type>java.lang.Integer</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.Products</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>description</opm:attribute-name>
+               <opm:field table="PRODUCTS" name="DESCRIPTION" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>expertiseAreasCollection</opm:attribute-name>
+               <opm:get-method>getExpertiseAreasCollection</opm:get-method>
+               <opm:set-method>setExpertiseAreasCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ExpertiseAreas</opm:reference-class>
+               <opm:private-owned>true</opm:private-owned>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="EXPERTISE_AREAS" name="PROD_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>image</opm:attribute-name>
+               <opm:field table="PRODUCTS" name="IMAGE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>name</opm:attribute-name>
+               <opm:field table="PRODUCTS" name="NAME" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>prodId</opm:attribute-name>
+               <opm:field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>serviceRequestsCollection</opm:attribute-name>
+               <opm:get-method>getServiceRequestsCollection</opm:get-method>
+               <opm:set-method>setServiceRequestsCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceRequests</opm:reference-class>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="PROD_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:change-policy xsi:type="toplink:deferred-detection-change-policy"/>
+         <toplink:tables>
+            <toplink:table name="PRODUCTS"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>oracle.srdemo.datamodel.ServiceHistories</opm:class>
+         <opm:alias>ServiceHistories</opm:alias>
+         <opm:primary-key>
+            <opm:field table="SERVICE_HISTORIES" name="SVR_ID" xsi:type="opm:column"/>
+            <opm:field table="SERVICE_HISTORIES" name="LINE_NO" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="findAllServiceHistories" xsi:type="toplink:read-all-query">
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ServiceHistories</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>lineNo</opm:attribute-name>
+               <opm:field table="SERVICE_HISTORIES" name="LINE_NO" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>notes</opm:attribute-name>
+               <opm:field table="SERVICE_HISTORIES" name="NOTES" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>serviceRequests</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceRequests</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_HISTORIES" name="SVR_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="SERVICE_REQUESTS" name="SVR_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="SERVICE_HISTORIES" name="SVR_ID" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>svhDate</opm:attribute-name>
+               <opm:field table="SERVICE_HISTORIES" name="SVH_DATE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>svhType</opm:attribute-name>
+               <opm:field table="SERVICE_HISTORIES" name="SVH_TYPE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>users</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Users</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_HISTORIES" name="CREATED_BY" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="SERVICE_HISTORIES" name="CREATED_BY" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:change-policy xsi:type="toplink:deferred-detection-change-policy"/>
+         <toplink:tables>
+            <toplink:table name="SERVICE_HISTORIES"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>oracle.srdemo.datamodel.ServiceRequests</opm:class>
+         <opm:alias>ServiceRequests</opm:alias>
+         <opm:primary-key>
+            <opm:field table="SERVICE_REQUESTS" name="SVR_ID" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="findServiceRequestById" xsi:type="toplink:read-object-query">
+                  <opm:criteria operator="equal" xsi:type="toplink:relation-expression">
+                     <toplink:left name="svrId" xsi:type="toplink:query-key-expression">
+                        <toplink:base xsi:type="toplink:base-expression"/>
+                     </toplink:left>
+                     <toplink:right xsi:type="toplink:parameter-expression">
+                        <toplink:parameter name="findSvrId" xsi:type="opm:column"/>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="findSvrId">
+                        <opm:type>java.lang.Integer</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ServiceRequests</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+               </opm:query>
+               <opm:query name="searchServiceRequests" xsi:type="toplink:read-all-query">
+                  <opm:criteria operator="and" xsi:type="toplink:logic-expression">
+                     <toplink:left operator="like" xsi:type="toplink:relation-expression">
+                        <toplink:left function="upper" xsi:type="toplink:function-expression">
+                           <toplink:arguments>
+                              <toplink:argument name="problemDescription" xsi:type="toplink:query-key-expression">
+                                 <toplink:base xsi:type="toplink:base-expression"/>
+                              </toplink:argument>
+                           </toplink:arguments>
+                        </toplink:left>
+                        <toplink:right function="upper" xsi:type="toplink:function-expression">
+                           <toplink:arguments>
+                              <toplink:argument xsi:type="toplink:parameter-expression">
+                                 <toplink:parameter name="descr" xsi:type="opm:column"/>
+                              </toplink:argument>
+                           </toplink:arguments>
+                        </toplink:right>
+                     </toplink:left>
+                     <toplink:right operator="like" xsi:type="toplink:relation-expression">
+                        <toplink:left function="upper" xsi:type="toplink:function-expression">
+                           <toplink:arguments>
+                              <toplink:argument name="status" xsi:type="toplink:query-key-expression">
+                                 <toplink:base xsi:type="toplink:base-expression"/>
+                              </toplink:argument>
+                           </toplink:arguments>
+                        </toplink:left>
+                        <toplink:right function="upper" xsi:type="toplink:function-expression">
+                           <toplink:arguments>
+                              <toplink:argument xsi:type="toplink:parameter-expression">
+                                 <toplink:parameter name="status" xsi:type="opm:column"/>
+                              </toplink:argument>
+                           </toplink:arguments>
+                        </toplink:right>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="descr">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                     <opm:argument name="status">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ServiceRequests</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+               <opm:query name="findAllServiceRequests" xsi:type="toplink:read-all-query">
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ServiceRequests</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+               <opm:query name="findServiceRequests" xsi:type="toplink:read-all-query">
+                  <opm:criteria operator="and" xsi:type="toplink:logic-expression">
+                     <toplink:left operator="like" xsi:type="toplink:relation-expression">
+                        <toplink:left name="status" xsi:type="toplink:query-key-expression">
+                           <toplink:base xsi:type="toplink:base-expression"/>
+                        </toplink:left>
+                        <toplink:right xsi:type="toplink:parameter-expression">
+                           <toplink:parameter name="status" xsi:type="opm:column"/>
+                        </toplink:right>
+                     </toplink:left>
+                     <toplink:right operator="or" xsi:type="toplink:logic-expression">
+                        <toplink:left operator="equal" xsi:type="toplink:relation-expression">
+                           <toplink:left name="userId" xsi:type="toplink:query-key-expression">
+                              <toplink:base name="assignedTo" outer-join="true" xsi:type="toplink:query-key-expression">
+                                 <toplink:base xsi:type="toplink:base-expression"/>
+                              </toplink:base>
+                           </toplink:left>
+                           <toplink:right xsi:type="toplink:parameter-expression">
+                              <toplink:parameter name="filedBy" xsi:type="opm:column"/>
+                           </toplink:right>
+                        </toplink:left>
+                        <toplink:right operator="equal" xsi:type="toplink:relation-expression">
+                           <toplink:left name="userId" xsi:type="toplink:query-key-expression">
+                              <toplink:base name="createdBy" outer-join="true" xsi:type="toplink:query-key-expression">
+                                 <toplink:base xsi:type="toplink:base-expression"/>
+                              </toplink:base>
+                           </toplink:left>
+                           <toplink:right xsi:type="toplink:parameter-expression">
+                              <toplink:parameter name="filedBy" xsi:type="opm:column"/>
+                           </toplink:right>
+                        </toplink:right>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="filedBy">
+                        <opm:type>java.lang.Integer</opm:type>
+                     </opm:argument>
+                     <opm:argument name="status">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.ServiceRequests</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>assignedDate</opm:attribute-name>
+               <opm:field table="SERVICE_REQUESTS" name="ASSIGNED_DATE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>assignedTo</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Users</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="ASSIGNED_TO" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="SERVICE_REQUESTS" name="ASSIGNED_TO" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>createdBy</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Users</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="CREATED_BY" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="SERVICE_REQUESTS" name="CREATED_BY" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>problemDescription</opm:attribute-name>
+               <opm:field table="SERVICE_REQUESTS" name="PROBLEM_DESCRIPTION" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-one-mapping">
+               <opm:attribute-name>products</opm:attribute-name>
+               <opm:reference-class>oracle.srdemo.datamodel.Products</opm:reference-class>
+               <opm:foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="PROD_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="PRODUCTS" name="PROD_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:foreign-key>
+               <opm:foreign-key-fields>
+                  <opm:field table="SERVICE_REQUESTS" name="PROD_ID" xsi:type="opm:column"/>
+               </opm:foreign-key-fields>
+               <toplink:indirection xsi:type="toplink:value-holder-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-object-query"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>requestDate</opm:attribute-name>
+               <opm:field table="SERVICE_REQUESTS" name="REQUEST_DATE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>serviceHistoriesCollection</opm:attribute-name>
+               <opm:get-method>getServiceHistoriesCollection</opm:get-method>
+               <opm:set-method>setServiceHistoriesCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceHistories</opm:reference-class>
+               <opm:private-owned>true</opm:private-owned>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_HISTORIES" name="SVR_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="SERVICE_REQUESTS" name="SVR_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>status</opm:attribute-name>
+               <opm:field table="SERVICE_REQUESTS" name="STATUS" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>svrId</opm:attribute-name>
+               <opm:field table="SERVICE_REQUESTS" name="SVR_ID" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:sequencing>
+            <toplink:sequence-name>SERVICE_REQUESTS_SEQ</toplink:sequence-name>
+            <toplink:sequence-field table="SERVICE_REQUESTS" name="SVR_ID" xsi:type="opm:column"/>
+         </toplink:sequencing>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:change-policy xsi:type="toplink:deferred-detection-change-policy"/>
+         <toplink:tables>
+            <toplink:table name="SERVICE_REQUESTS"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>oracle.srdemo.datamodel.Users</opm:class>
+         <opm:alias>Users</opm:alias>
+         <opm:primary-key>
+            <opm:field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="findUserByEmail" xsi:type="toplink:read-object-query">
+                  <opm:criteria operator="equal" xsi:type="toplink:relation-expression">
+                     <toplink:left name="email" xsi:type="toplink:query-key-expression">
+                        <toplink:base xsi:type="toplink:base-expression"/>
+                     </toplink:left>
+                     <toplink:right xsi:type="toplink:parameter-expression">
+                        <toplink:parameter name="emailParam" xsi:type="opm:column"/>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="emailParam">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.Users</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+               </opm:query>
+               <opm:query name="findAllUsers" xsi:type="toplink:read-all-query">
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.Users</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+               <opm:query name="findUserById" xsi:type="toplink:read-object-query">
+                  <opm:criteria operator="equal" xsi:type="toplink:relation-expression">
+                     <toplink:left name="userId" xsi:type="toplink:query-key-expression">
+                        <toplink:base xsi:type="toplink:base-expression"/>
+                     </toplink:left>
+                     <toplink:right xsi:type="toplink:parameter-expression">
+                        <toplink:parameter name="createdBy" xsi:type="opm:column"/>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="createdBy">
+                        <opm:type>java.lang.Integer</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:timeout>0</toplink:timeout>
+                  <toplink:reference-class>oracle.srdemo.datamodel.Users</toplink:reference-class>
+                  <toplink:cache-usage>primary-key</toplink:cache-usage>
+                  <toplink:lock-mode>none</toplink:lock-mode>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>assignedToCollection</opm:attribute-name>
+               <opm:get-method>getAssignedToCollection</opm:get-method>
+               <opm:set-method>setAssignedToCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceRequests</opm:reference-class>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="ASSIGNED_TO" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>city</opm:attribute-name>
+               <opm:field table="USERS" name="CITY" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>countryId</opm:attribute-name>
+               <opm:field table="USERS" name="COUNTRY_ID" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>createdByCollection</opm:attribute-name>
+               <opm:get-method>getCreatedByCollection</opm:get-method>
+               <opm:set-method>setCreatedByCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceRequests</opm:reference-class>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_REQUESTS" name="CREATED_BY" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>email</opm:attribute-name>
+               <opm:field table="USERS" name="EMAIL" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>expertiseAreasCollection</opm:attribute-name>
+               <opm:get-method>getExpertiseAreasCollection</opm:get-method>
+               <opm:set-method>setExpertiseAreasCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ExpertiseAreas</opm:reference-class>
+               <opm:private-owned>true</opm:private-owned>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="EXPERTISE_AREAS" name="USER_ID" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>firstName</opm:attribute-name>
+               <opm:field table="USERS" name="FIRST_NAME" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>lastName</opm:attribute-name>
+               <opm:field table="USERS" name="LAST_NAME" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>postalCode</opm:attribute-name>
+               <opm:field table="USERS" name="POSTAL_CODE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:one-to-many-mapping">
+               <opm:attribute-name>serviceHistoriesCollection</opm:attribute-name>
+               <opm:get-method>getServiceHistoriesCollection</opm:get-method>
+               <opm:set-method>setServiceHistoriesCollection</opm:set-method>
+               <opm:reference-class>oracle.srdemo.datamodel.ServiceHistories</opm:reference-class>
+               <opm:target-foreign-key>
+                  <opm:field-reference>
+                     <opm:source-field table="SERVICE_HISTORIES" name="CREATED_BY" xsi:type="opm:column"/>
+                     <opm:target-field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+                  </opm:field-reference>
+               </opm:target-foreign-key>
+               <toplink:container xsi:type="toplink:container-policy">
+                  <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+               </toplink:container>
+               <toplink:indirection xsi:type="toplink:transparent-collection-indirection-policy"/>
+               <toplink:selection-query xsi:type="toplink:read-all-query">
+                  <toplink:container xsi:type="toplink:container-policy">
+                     <toplink:collection-type>oracle.toplink.indirection.IndirectList</toplink:collection-type>
+                  </toplink:container>
+               </toplink:selection-query>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>stateProvince</opm:attribute-name>
+               <opm:field table="USERS" name="STATE_PROVINCE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>streetAddress</opm:attribute-name>
+               <opm:field table="USERS" name="STREET_ADDRESS" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>userId</opm:attribute-name>
+               <opm:field table="USERS" name="USER_ID" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>userRole</opm:attribute-name>
+               <opm:field table="USERS" name="USER_ROLE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:change-policy xsi:type="toplink:deferred-detection-change-policy"/>
+         <toplink:tables>
+            <toplink:table name="USERS"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+   </opm:class-mapping-descriptors>
+   <toplink:login xsi:type="toplink:database-login">
+      <toplink:platform-class>oracle.toplink.platform.database.oracle.Oracle10Platform</toplink:platform-class>
+      <toplink:user-name>srdemo</toplink:user-name>
+      <toplink:password>A0D145248EE31051EAA1C822B80C610A</toplink:password>
+      <toplink:sequencing>
+         <toplink:default-sequence xsi:type="toplink:native-sequence"/>
+      </toplink:sequencing>
+      <toplink:driver-class>oracle.jdbc.OracleDriver</toplink:driver-class>
+      <toplink:connection-url>jdbc:oracle:thin:@localhost:1521:ORCL</toplink:connection-url>
+   </toplink:login>
+</toplink:object-persistence>
