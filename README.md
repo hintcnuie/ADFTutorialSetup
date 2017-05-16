@@ -1,3 +1,11 @@
 ## ADF Setup  Tutorials
-# DB scripts
-# SRDemo source code
+   includes tutorials' source code
+#DB scripts
+  - build.sql
+  - createSchema.sql
+  - createSequenceTriggers.sql
+  - createSchemaObjects.sql
+ 
+ 
+#SRDemo source code
+  2~10
